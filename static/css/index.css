@@ -1,0 +1,96 @@
+:root{
+  box-sizing: border-box;
+}
+
+*, ::after, ::before{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family:  Helvetica, sans-serif;
+  background-color: rgb(255, 253, 253);
+  line-height: 1.5;
+  letter-spacing: .05em;
+}
+
+a{
+  text-decoration: none;
+  
+}
+
+.nav_div{
+  height: 10vh;
+  width: 100;
+  background-color: indianred;
+}
+.nav{
+  display: flex;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav a{
+  color: white;
+}
+
+.nav_links{
+  list-style: none;
+  display: flex;
+
+}
+.nav_links > li + li{
+  margin-left: 1em;
+}
+.nav_link{
+  text-decoration: none;
+  color: white;
+}
+
+.container{
+  width: 80%;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.post_container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-gap : 4em;
+}
+
+.post_card{
+  background-color: white;
+  box-shadow: .1em .1em .5em rgba(0, 0, 0, 0.507);
+}
+
+.post_card_inner{
+  display: flex;
+}
+
+img{
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+}
+
+.post_card_title_info {
+  padding: 2em 1em;
+}
+
+.post_card_detail{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post_card_detail img{
+  width: 100%;
+  margin-bottom: 1em;
+  object-fit: cover;
+}

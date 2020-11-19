@@ -1,0 +1,21 @@
+
+<div class="post_card">
+{% if post.featured %}
+  
+    <div class="post_card_inner">
+      <img src="{{post.thumbnail.url}}" alt="I dont know" />
+      <div class="post_card_title_info">
+        <a href="{{post.get_absolute_url}}">
+          <h3>{{post.title}}</h3>
+        </a>
+      </div>
+    
+
+    {% else %}
+
+  <div>
+  <h3>No featured post</h3>
+  </div>
+
+{% endif %}    
+</div>

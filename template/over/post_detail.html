@@ -1,0 +1,52 @@
+{% extends 'over/base.html' %} {% load static %} {% block content %}
+
+<div class="post_card_detail">
+  <div class="post_card_title_info">
+    <h3>{{post.title}}</h3>
+  </div>
+  <img src="{{post.thumbnail.url}}" alt="I dont know" />
+  <h6> View ({{post.count_view}})</h6>
+  <p>{{post.content}}</p>
+  <a href=" {% url 'post_update' post.id %} ">
+  <button>Edit</button>
+  </a>
+  <a href=" {% url 'post_delete' post.id %} ">
+  <button>Delete</button>
+  </a>
+</div>
+
+{% if request.user.is_authenticated %}
+
+  <form action="" method="post">
+  {% csrf_token %}
+  {{comment_form.as_p}}
+  <button type="submit">Comment</button>
+  </form>
+
+  {% for comment in post_comments  %}
+  <h4>{{comment.content}}</h4>
+  <p>Commented by {{comment.user.username}} </p>
+
+  {% for reply in comment.replies.all  %}
+  <h6>{{reply.content}}</h6>
+  <p>Commented by {{reply.user.username}} </p>
+  {% endfor %}
+
+
+  <form action="" method="post">
+  {% csrf_token %}
+  {{comment_form.as_p}}
+  <input type="hidden" name="reply_id" value={{comment.id}}>
+  <button type="submit">Reply</button>
+  </form>
+
+
+  {% endfor %}
+
+  
+  {% else %}
+  <h4>Please login to comment</h4>
+{% endif %}
+
+
+{% endblock content %}

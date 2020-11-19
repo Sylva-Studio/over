@@ -1,0 +1,10 @@
+{% extends 'over/base.html' %} {% load static %} {% block content %}
+
+<div class="post_card_detail">
+  <form action="." method="post" enctype="multipart/form-data">
+  {% csrf_token %} 
+  {{form.as_p}}
+  <button type="submit">Create Post</button>
+  </form>
+</div>
+{% endblock content %}
